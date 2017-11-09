@@ -1,0 +1,7 @@
+
+package proyecto2;
+
+//PARA LLEVAR EL CONTROL DE LAS ACCIONES REALIZADAS Y EL CONTROL DE LAS GANANCIAS ADQUIRIDAS
+public class MReportes {
+    
+}

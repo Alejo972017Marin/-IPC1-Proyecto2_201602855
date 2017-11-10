@@ -353,17 +353,15 @@ public class MReservaciones extends JFrame {
                 for (int i = 0; i < 60; i++) {
                     if (txPaqu.getText().equals(DatosP[i][7])) {
 
-                        for (int j = 0; j < 60; j++) {
-
-                            //if (DatosP[i][5].equals(DatosHO[j][3])) {
-                            if (DatosP[i][4].equals(DatosHO[j][2])) {
-                                //DatosR[cont][7]= saldo pendiente
-                                for (int k = 0; k < 60; k++) {
-                                    if (lblDPI1.getText().equals(DatosR[k][3])) {
+                        //DatosR[cont][7]= saldo pendiente
+                        for (int k = 0; k < 60; k++) {
+                            if (lblDPI1.getText().equals(DatosR[k][3])) {
+                                for (int j = 0; j < 60; j++) {
+                                    if (DatosP[i][4].equals(DatosD[j][4])) {
 
                                         int SaldoPen = Integer.parseInt(DatosR[k][7]);
                                         int Abonos = Integer.parseInt(txPagar.getText());
-                                        
+
                                         if (Abonos > SaldoPen) {
                                             JOptionPane.showMessageDialog(null, "El tramite no puede ser realizado ,El Abono Exede la deuda ");
                                         } else {
@@ -379,7 +377,6 @@ public class MReservaciones extends JFrame {
 
                             }
 
-                            //}
                         }
 
                     }
@@ -422,7 +419,6 @@ public class MReservaciones extends JFrame {
                 txPaqu.setEditable(false);
                 txRango.setEditable(false);
                 txDPIR.setEditable(false);
-                
 
             }
 
@@ -439,7 +435,6 @@ public class MReservaciones extends JFrame {
                 txPaqu.setEditable(true);
                 txRango.setEditable(true);
                 txDPIR.setEditable(true);
-                
 
             }
 

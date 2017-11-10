@@ -192,7 +192,7 @@ public class MReportes extends MReservaciones {
             public void actionPerformed(ActionEvent evt) {
                 ImprimirActionPerformed(evt);
             }
-
+ 
             private void ImprimirActionPerformed(ActionEvent evt) {
                 
 
@@ -210,13 +210,14 @@ public class MReportes extends MReservaciones {
                         }
                         
                         for (int j = 0; j < 60; j++) {
-                            if(IDC.equals(DatosR[j][3])){
+                            if(cbID.getSelectedItem().equals(DatosR[j][3])){
                             NV++;
                             }
                             
                         }
                         
                         NViajes=Integer.toString(NV);
+                        NV=0;
                             
                             
                         for (int j = 0; j < 60; j++) {

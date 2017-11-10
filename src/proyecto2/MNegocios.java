@@ -103,25 +103,6 @@ public class MNegocios extends MReservaciones {
         JButton Describir;
         JButton Almacenar;
         JComboBox IDPAQ;
-        /*
-        lbTipoPaq
-        lbClasPaq
-        lbCantViaj
-        lbTransporte
-        lbCrucero
-        lbDestino
-        lbLugar
-        lbCostoPaq
-                              
-        txTipoPaq
-        txClasPaq
-        txCantViaj
-        txTransporte
-        txCrucero
-        txDestino
-        txLugar
-        txCostoPaq    
-         */
 
         JLabel lbTipoPaq;
         JLabel lbClasPaq;
@@ -239,14 +220,14 @@ public class MNegocios extends MReservaciones {
         txLugar.reshape(220, 300, 400, 20);
         txCostoPaq.reshape(220, 340, 400, 20);
 
-        txTipoPaq.setEnabled(false);
-        txClasPaq.setEnabled(false);
-        txCantViaj.setEnabled(false);
-        txTransporte.setEnabled(false);
-        txCrucero.setEnabled(false);
-        txDestino.setEnabled(false);
-        txLugar.setEnabled(false);
-        txCostoPaq.setEnabled(false);
+        txTipoPaq.setEditable(false);
+        txClasPaq.setEditable(false);
+        txCantViaj.setEditable(false);
+        txTransporte.setEditable(false);
+        txCrucero.setEditable(false);
+        txDestino.setEditable(false);
+        txLugar.setEditable(false);
+        txCostoPaq.setEditable(false);
 
         Describir.addActionListener(new ActionListener() {
             @Override
@@ -258,7 +239,7 @@ public class MNegocios extends MReservaciones {
                 //aqui busco la descripcion del transporte y al destino que se dirije
                 if (IDPAQ.getSelectedItem() != null) {
                     for (int i = 0; i < 60; i++) {
-                        if (IDPAQ.getSelectedItem().equals(DatosP[i][7])) {
+                        if (DatosP[i][7].equals(IDPAQ.getSelectedItem())) {
 
                             txTipoPaq.setText(DatosP[i][0]);
                             txClasPaq.setText(DatosP[i][2]);

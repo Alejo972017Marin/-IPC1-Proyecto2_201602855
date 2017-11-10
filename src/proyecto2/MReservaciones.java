@@ -160,6 +160,7 @@ public class MReservaciones extends JFrame {
         JButton Cancelar;
         JButton Pagar;
         JButton Editar;
+        JButton Guardar;
 
         setSize(950, 650);
         setTitle("Modulo de Reservaciones");
@@ -248,6 +249,7 @@ public class MReservaciones extends JFrame {
         Cancelar = new JButton("Historial");
         Pagar = new JButton("Pagar");
         Editar = new JButton("Editar");
+        Guardar = new JButton("Guardar");
 
         add(lbPaqu);
         add(lbDPIR);
@@ -267,6 +269,7 @@ public class MReservaciones extends JFrame {
         add(Aceptar);
         add(Cancelar);
         add(Editar);
+        add(Guardar);
 
         txPaqu.setEditable(false);
         txDPIR.setEditable(false);
@@ -331,8 +334,10 @@ public class MReservaciones extends JFrame {
 
         lbPagar.reshape(20, 260, 150, 20);
         txPagar.reshape(160, 260, 100, 20);
+
         Pagar.reshape(290, 260, 100, 20);
-        Editar.reshape(830, 260, 100, 20);
+        Editar.reshape(700, 260, 100, 20);
+        Guardar.reshape(830, 260, 100, 20);
 
         Aceptar.reshape(20, 550, 100, 20);
         Cancelar.reshape(130, 550, 100, 20);
@@ -351,36 +356,83 @@ public class MReservaciones extends JFrame {
                         for (int j = 0; j < 60; j++) {
 
                             //if (DatosP[i][5].equals(DatosHO[j][3])) {
+                            if (DatosP[i][4].equals(DatosHO[j][2])) {
+                                //DatosR[cont][7]= saldo pendiente
+                                for (int k = 0; k < 60; k++) {
+                                    if (lblDPI1.getText().equals(DatosR[k][3])) {
 
-                                if (DatosP[i][4].equals(DatosHO[j][2])) {
-                                    //DatosR[cont][7]= saldo pendiente
-                                    for (int k = 0; k < 60; k++) {
-                                        if (lblDPI1.getText().equals(DatosR[k][3])) {
-
-                                            int SaldoPen = Integer.parseInt(DatosR[k][7]);
-                                            int Abonos = Integer.parseInt(txPagar.getText());
-                                            if (Abonos > SaldoPen) {
-                                                JOptionPane.showMessageDialog(null, "El tramite no puede ser realizado ,El Abono Exede la deuda ");
-                                            } else {
-                                                int Tot = SaldoPen - Abonos;
-                                                DatosR[k][7] = "";
-                                                DatosR[k][7] = Integer.toString(Tot);
-                                                txCosto.setText(DatosR[k][7]);
-                                            }
-
+                                        int SaldoPen = Integer.parseInt(DatosR[k][7]);
+                                        int Abonos = Integer.parseInt(txPagar.getText());
+                                        if (Abonos > SaldoPen) {
+                                            JOptionPane.showMessageDialog(null, "El tramite no puede ser realizado ,El Abono Exede la deuda ");
+                                        } else {
+                                            int Tot = SaldoPen - Abonos;
+                                            DatosR[k][7] = "";
+                                            DatosR[k][7] = Integer.toString(Tot);
+                                            txCosto.setText(DatosR[k][7]);
                                         }
 
                                     }
 
                                 }
 
-                            //}
+                            }
 
+                            //}
                         }
 
                     }
 
                 }
+
+            }
+
+        });
+
+        Guardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                GuardarActionPerformed(evt);
+            }
+
+            private void GuardarActionPerformed(ActionEvent evt) {
+
+                for (int i = 0; i < 60; i++) {
+                    if (dpi.equals(DatosR[i][3])) {
+                        for (int j = 0; j < 60; j++) {
+                            if (DatosR[j][0].equals(i)) {
+
+                                DatosR[i][1] = txPaqu.getText();
+                                DatosR[i][2] = txRango.getText();
+                                DatosR[i][6] = txDPIR.getText();
+                                DatosR[i][7] = txCosto.getText();
+
+                            }
+                        }
+                    }
+
+                }
+                txPaqu.setEditable(false);
+                txRango.setEditable(false);
+                txDPIR.setEditable(false);
+                txCosto.setEditable(false);
+
+            }
+
+        });
+
+        Editar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                EditarActionPerformed(evt);
+            }
+
+            private void EditarActionPerformed(ActionEvent evt) {
+
+                txPaqu.setEditable(true);
+                txRango.setEditable(true);
+                txDPIR.setEditable(true);
+                txCosto.setEditable(true);
 
             }
 

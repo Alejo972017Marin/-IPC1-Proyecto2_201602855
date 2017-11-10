@@ -43,13 +43,13 @@ public class Administrador extends JFrame {
         add(Agregar);
         add(back);
 
-        Clientes.reshape(200, 150, 200, 60);
-        Reservas.reshape(200, 250, 200, 60);
-        Negocios.reshape(200, 350, 200, 60);
-        Reportes.reshape(500, 150, 200, 60);
-        Carga.reshape(500, 250, 200, 60);
-        Agregar.reshape(500, 350, 200, 60);
-        back.reshape(700, 450, 100, 30);
+        Clientes.reshape(200, 150, 200, 50);
+        Reservas.reshape(200, 250, 200, 50);
+        Negocios.reshape(200, 350, 200, 50);
+        Reportes.reshape(500, 150, 200, 50);
+        Carga.reshape(500, 250, 200, 50);
+        Agregar.reshape(500, 350, 200, 50);
+        back.reshape(700, 450, 100, 20);
 
         Clientes.addActionListener(new ActionListener() {
             @Override
@@ -108,6 +108,10 @@ public class Administrador extends JFrame {
 
             private void ReportesActionPerformed(ActionEvent evt) {
                 setVisible(false);
+                MReportes MR= new MReportes();
+                MR.MReportes();
+                MR.setVisible(true);
+                MR.setLocationRelativeTo(null);
             }
 
         });

@@ -20,7 +20,7 @@ public class MClientes extends MReservaciones {
     JButton back;
     static int add = 0;
     static int cont = 0;
-     
+
     String DPI;
     String Nombres;
     String Apellidos;
@@ -51,6 +51,9 @@ public class MClientes extends MReservaciones {
 
     JButton Agregar;
     JButton Cancelar;
+    private JButton Info;
+    private JButton Borrar;
+    private JButton Modificar;
 
     public MClientes() {
 
@@ -80,6 +83,9 @@ public class MClientes extends MReservaciones {
         Cancelar = new JButton("Nuevo");
         Fondo = new JLabel();
         back = new JButton("Atras");
+        Info = new JButton("Datos");
+        Modificar = new JButton("Modificar");
+        Borrar = new JButton("Eliminar");
 
         add(lbDPI);
         add(lbNombre);
@@ -100,16 +106,25 @@ public class MClientes extends MReservaciones {
         add(Agregar);
         add(Cancelar);
         add(back);
+        add(Info);
+        add(Modificar);
+        add(Borrar);
         add(Fondo);
 
         Fondo.setSize(920, 620);
 
         lbNombre.reshape(20, 20, 100, 20);
         txNombre.reshape(120, 20, 100, 20);
+        Info.reshape(300, 20, 100, 20);
+
         lbApellido.reshape(20, 60, 100, 20);
         txApellido.reshape(120, 60, 100, 20);
+        Modificar.reshape(300, 60, 100, 20);
+
         lbDPI.reshape(20, 100, 100, 20);
         txDPI.reshape(120, 100, 100, 20);
+        Borrar.reshape(300, 100, 100, 20);
+
         lbNumTarjeta.reshape(20, 140, 100, 20);
         txNumTarjeta.reshape(120, 140, 100, 20);
         lbFechNac.reshape(20, 180, 100, 20);
@@ -121,9 +136,9 @@ public class MClientes extends MReservaciones {
         lbDirecHabt.reshape(20, 300, 100, 20);
         txDirecHabt.reshape(120, 300, 100, 20);
 
-        Agregar.reshape(20, 360, 100, 40);
-        Cancelar.reshape(160, 360, 100, 40);
-        back.reshape(20, 410, 100, 30);
+        Agregar.reshape(20, 360, 100, 20);
+        Cancelar.reshape(160, 360, 100, 20);
+        back.reshape(20, 410, 100, 20);
 
         ImageIcon imagen = new ImageIcon("src/proyecto2/Travel2.jpg");
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
@@ -153,14 +168,11 @@ public class MClientes extends MReservaciones {
                 DatosC[cont][7] = txMovil.getText();
                 DatosC[cont][8] = txDirecHabt.getText();
 
-                
                 JOptionPane.showMessageDialog(null, "Guardado " + cont);
                 cont = 0;
 
             }
         });
-
-        
 
         Cancelar.addActionListener(new ActionListener() {
             @Override
@@ -178,6 +190,93 @@ public class MClientes extends MReservaciones {
                 txTel.setText("");
                 txMovil.setText("");
                 txDirecHabt.setText("");
+
+            }
+        });
+
+        Info.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                InfoActionPerformed(evt);
+            }
+
+            private void InfoActionPerformed(ActionEvent evt) {
+                for (int i = 0; i < 60; i++) {
+
+                    if (txDPI.getText().equals(DatosC[i][3])) {
+
+                        txNombre.setText(DatosC[i][1]);
+                        txApellido.setText(DatosC[i][2]);
+                        txDPI.setText(txDPI.getText());
+                        txDPI.setEditable(false);
+                        txNumTarjeta.setText(DatosC[i][4]);
+                        txFechNac.setText(DatosC[i][5]);
+                        txTel.setText(DatosC[i][6]);
+                        txMovil.setText(DatosC[i][7]);
+                        txDirecHabt.setText(DatosC[i][8]);
+
+                    }
+
+                }
+
+            }
+
+        });
+
+        Modificar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                ModificarActionPerformed(evt);
+            }
+
+            private void ModificarActionPerformed(ActionEvent evt) {
+
+                for (int i = 0; i < 60; i++) {
+
+                    if (txDPI.getText().equals(DatosC[i][3])) {
+
+                        DatosC[i][0] = Integer.toString(cont);
+                        DatosC[i][1] = txNombre.getText();
+                        DatosC[i][2] = txApellido.getText();
+                        DatosC[i][3] = txDPI.getText();
+                        DatosC[i][4] = txNumTarjeta.getText();
+                        DatosC[i][5] = txFechNac.getText();
+                        DatosC[i][6] = txTel.getText();
+                        DatosC[i][7] = txMovil.getText();
+                        DatosC[i][8] = txDirecHabt.getText();
+
+                    }
+
+                }
+                JOptionPane.showMessageDialog(null, "Modificacion Exitosa.");
+
+            }
+
+        });
+
+        Borrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                BorrarActionPerformed(evt);
+            }
+
+            private void BorrarActionPerformed(ActionEvent evt) {
+                for (int i = 0; i < 60; i++) {
+                    if (txDPI.getText().equals(DatosC[i][3])) {
+
+                        DatosC[i][0] = null;
+                        DatosC[i][1] = null;
+                        DatosC[i][2] = null;
+                        DatosC[i][3] = null;
+                        DatosC[i][4] = null;
+                        DatosC[i][5] = null;
+                        DatosC[i][6] = null;
+                        DatosC[i][7] = null;
+                        DatosC[i][8] = null;
+
+                    }
+                }
+                JOptionPane.showMessageDialog(null, "Eliminacion Exitosa.");
 
             }
         });

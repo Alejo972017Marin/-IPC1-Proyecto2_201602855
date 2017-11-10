@@ -197,7 +197,7 @@ public class MReportes extends MReservaciones {
                 
 
                 for (int i = 0; i < 60; i++) {
-                    if (DatosR[i][3].equals(cbID.getSelectedItem())) {
+                    if (cbID.getSelectedItem().equals(DatosR[i][3])) {
                         
                         
                         for (int j = 0; j < 60; j++) {

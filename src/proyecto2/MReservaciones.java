@@ -363,6 +363,7 @@ public class MReservaciones extends JFrame {
 
                                         int SaldoPen = Integer.parseInt(DatosR[k][7]);
                                         int Abonos = Integer.parseInt(txPagar.getText());
+                                        
                                         if (Abonos > SaldoPen) {
                                             JOptionPane.showMessageDialog(null, "El tramite no puede ser realizado ,El Abono Exede la deuda ");
                                         } else {
@@ -400,12 +401,18 @@ public class MReservaciones extends JFrame {
                 for (int i = 0; i < 60; i++) {
                     if (dpi.equals(DatosR[i][3])) {
                         for (int j = 0; j < 60; j++) {
-                            if (DatosR[j][0].equals(i)) {
+                            if (DatosR[i][1].equals(DatosP[j][7])) {
 
                                 DatosR[i][1] = txPaqu.getText();
                                 DatosR[i][2] = txRango.getText();
                                 DatosR[i][6] = txDPIR.getText();
-                                DatosR[i][7] = txCosto.getText();
+                                for (int k = 0; k < 60; k++) {
+                                    if (DatosR[i][1].equals(DatosP[k][7])) {
+                                        DatosR[i][7] = DatosP[k][10];
+                                        txCosto.setText(DatosR[i][7]);
+
+                                    }
+                                }
 
                             }
                         }
@@ -415,7 +422,7 @@ public class MReservaciones extends JFrame {
                 txPaqu.setEditable(false);
                 txRango.setEditable(false);
                 txDPIR.setEditable(false);
-                txCosto.setEditable(false);
+                
 
             }
 
@@ -432,7 +439,7 @@ public class MReservaciones extends JFrame {
                 txPaqu.setEditable(true);
                 txRango.setEditable(true);
                 txDPIR.setEditable(true);
-                txCosto.setEditable(true);
+                
 
             }
 

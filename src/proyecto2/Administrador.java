@@ -46,9 +46,9 @@ public class Administrador extends JFrame {
         Clientes.reshape(200, 150, 200, 50);
         Reservas.reshape(200, 250, 200, 50);
         Negocios.reshape(200, 350, 200, 50);
-        Reportes.reshape(500, 150, 200, 50);
+        Reportes.reshape(500, 350, 200, 50);
         Carga.reshape(500, 250, 200, 50);
-        Agregar.reshape(500, 350, 200, 50);
+        Agregar.reshape(500, 150, 200, 50);
         back.reshape(700, 450, 100, 20);
 
         Clientes.addActionListener(new ActionListener() {

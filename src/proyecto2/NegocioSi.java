@@ -29,12 +29,14 @@ public class NegocioSi extends MReservaciones {
     private JTextField txTipPaq;
     private JTextField txClasPaq;
     private JTextField txCantViaj;
+    
     private JComboBox cbIDTransporte;
     private JComboBox cbIDHospedaje;
     private JComboBox cbIDCrucero;
     private JComboBox cbIDRentadora;
     private JComboBox cbIDDestino;
     private JComboBox cbIDLugar;
+    
     private JTextField txCostoPaq;
 
     private JButton back;
@@ -42,6 +44,12 @@ public class NegocioSi extends MReservaciones {
     private JButton Borrar;
     private JButton Info;
     private int ver = 0;
+    static String cbTra[]= new String[60];
+    static String cbHos[]= new String[60];
+    static String cbCru[]= new String[60];
+    static String cbRen[]= new String[60];
+    static String cbDes[]= new String[60];
+    static String cbLug[]= new String[60];
 
     public NegocioSi() {
         setSize(920, 620);
@@ -49,6 +57,27 @@ public class NegocioSi extends MReservaciones {
         setLayout(null);
         setDefaultCloseOperation(NegocioSi.EXIT_ON_CLOSE);
         setResizable(false);
+        for (int i = 0; i < 60; i++) {
+            cbTra[i]=DatosT[i][4];
+        }
+        for (int i = 0; i < 60; i++) {
+            cbHos[i]=DatosHO[i][3];
+        }
+        for (int i = 0; i < 60; i++) {
+            cbCru[i]=DatosCR[i][5];
+        }
+        for (int i = 0; i < 60; i++) {
+            cbRen[i]=DatosRA[i][6];
+        }
+        for (int i = 0; i < 60; i++) {
+            cbDes[i]=DatosD[i][4];
+        }
+        for (int i = 0; i < 60; i++) {
+            cbLug[i]=DatosLT[i][6];
+        }
+        
+        
+        
         lbIDPaq = new JLabel("ID Paq: ");
         lbTipPaq = new JLabel("Tipo Paq: ");
         lbClasPaq = new JLabel("Clasificacion: ");
@@ -65,12 +94,14 @@ public class NegocioSi extends MReservaciones {
         txTipPaq = new JTextField();
         txClasPaq = new JTextField();
         txCantViaj = new JTextField();
-        cbIDTransporte = new JComboBox();
-        cbIDHospedaje = new JComboBox();
-        cbIDCrucero = new JComboBox();
-        cbIDRentadora = new JComboBox();
-        cbIDDestino = new JComboBox();
-        cbIDLugar = new JComboBox();
+        
+        cbIDTransporte = new JComboBox(cbTra);
+        cbIDHospedaje = new JComboBox(cbHos);
+        cbIDCrucero = new JComboBox(cbCru);
+        cbIDRentadora = new JComboBox(cbRen);
+        cbIDDestino = new JComboBox(cbDes);
+        cbIDLugar = new JComboBox(cbLug);
+        
         txCostoPaq = new JTextField();
 
         back = new JButton("Atras");

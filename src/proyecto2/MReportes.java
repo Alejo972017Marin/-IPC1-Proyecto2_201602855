@@ -178,13 +178,15 @@ String PaqOrd[][] = new String[60][3];
                 for (int i = 0; i < 60; i++) {
                     if (DatosCarga[i][0]!=null) {
                          
-                        System.out.println("Usuario que Ingreso El Archivo"+DatosCarga[i][0]);
+                        System.out.println("Usuario que Ingreso El Archivo: "+DatosCarga[i][0]);
                         System.out.println("Tipo de Datos: "+DatosCarga[i][1]);
                         System.out.println("Ruta del Archivo: "+DatosCarga[i][2]);
                         System.out.println("Fecha en que se ingreso: "+DatosCarga[i][3]);
                         System.out.println("Hora A La que se ingreso: "+DatosCarga[i][4]);
                         
                     }
+                    System.out.println("");
+                    System.out.println("");
                     
                 }
                 

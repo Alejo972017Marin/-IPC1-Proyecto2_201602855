@@ -34,7 +34,8 @@ public class MReservaciones extends JFrame {
     public static String[][] DatosCT = new String[60][4];
     public static Object[][] PaqueteCreado = new Object[60][10];
     public static Object[][] PaqRep = new Object[60][2];
-    public static Object [][] ClR= new Object[60][2];
+    public static Object[][] ClR= new Object[60][2];
+    public static String[][] UltimasR= new String[5][8];
 
     Administrador AD = new Administrador();
     String Paquete;
@@ -464,6 +465,22 @@ public class MReservaciones extends JFrame {
                 txDPIR.setEditable(true);
                 txFechaOut.setEditable(true);
 
+            }
+
+        });
+        //Este Boton es para el Historial de las ultimas 5 reservaciones
+        Cancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+
+            private void CancelarActionPerformed(ActionEvent evt) {
+                
+                
+                
+                
+                
             }
 
         });

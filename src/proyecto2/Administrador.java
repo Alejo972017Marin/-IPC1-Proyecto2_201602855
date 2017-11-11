@@ -49,7 +49,7 @@ IngresoSistema IS = new IngresoSistema();
         add(back);
         add(Fondo);//Agregar de Ultimo
 
-        if (IS.Usuario.getText().equals("ipc1Admin")) {
+        if (IS.Usuario.getText().equals("ipc1Admin")||IS.Usuario.getText().equals("Administrador")) {
             Reportes.setVisible(true);
             Carga.setVisible(true);
 

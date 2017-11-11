@@ -12,7 +12,7 @@ class UsuariosPro extends MReservaciones{
         
     }
    
-     private String[][] DatosUsu={{"ipc1Admin"},{"Alejandro"},{"Ingrid"}};
+     private String[][] DatosUsu={{"ipc1Admin"},{"Administrador"},{"Alejandro"},{"Ingrid"}};
  
     
     

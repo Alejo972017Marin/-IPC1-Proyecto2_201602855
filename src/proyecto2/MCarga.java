@@ -466,7 +466,7 @@ private String Nomb;
                 int año = fecha.get(Calendar.YEAR);
                 int mes = fecha.get(Calendar.MONTH);
                 int dia = fecha.get(Calendar.DAY_OF_MONTH);
-                int hor=fecha.get(Calendar.HOUR_OF_DAY);
+                int hor=fecha.get(Calendar.HOUR);
                 int min= fecha.get(Calendar.MINUTE);
                 
                 Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
@@ -486,7 +486,7 @@ private String Nomb;
         DatosCarga[contador][4]= Hora;
         
         
-        
+        contador=0;
         
          
         
@@ -560,6 +560,40 @@ private String Nomb;
             URL = txReservaciones.getText();
 
         }
+        
+        
+        Nomb = "Datos de las Reservaciones.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
+        
+        
 
         String csvFile = URL;
         BufferedReader br = null;
@@ -626,6 +660,41 @@ private String Nomb;
             URL = txPaquetes.getText();
 
         }
+        
+        
+        
+        
+        Nomb = "Datos de los Paquetes.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
+        
 
         String csvFile = URL;
         BufferedReader br = null;
@@ -695,6 +764,40 @@ private String Nomb;
             URL = txDestinoTur.getText();
 
         }
+        
+        
+        Nomb = "Datos de Los Destinos Turisticos.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
+        
+        
 
         String csvFile = URL;
         BufferedReader br = null;
@@ -757,6 +860,39 @@ private String Nomb;
             URL = txLugaresEsp.getText();
 
         }
+        
+        
+        
+        Nomb = "Datos de los Lugares de Espectaculo y Entretenimiento.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
 
         String csvFile = URL;
         BufferedReader br = null;
@@ -829,6 +965,38 @@ private String Nomb;
             URL = txTransportes.getText();
 
         }
+        
+        
+        Nomb = "Datos de los Transportes.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
 
         String csvFile = URL;
         BufferedReader br = null;
@@ -889,6 +1057,38 @@ private String Nomb;
             URL = txAsientos.getText();
 
         }
+        
+        
+        Nomb = "Datos de Los Asientos de los Transportes.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
 
         String csvFile = URL;
         BufferedReader br = null;
@@ -949,6 +1149,38 @@ private String Nomb;
             URL = txHospedaje.getText();
 
         }
+        
+        
+        Nomb = "Datos de los Hoteles.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
 
         String csvFile = URL;
         BufferedReader br = null;
@@ -1005,6 +1237,37 @@ private String Nomb;
             URL = txHabitacion.getText();
 
         }
+        
+        Nomb = "Datos de Habitaciones de los Hoteles.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
 
         String csvFile = URL;
         BufferedReader br = null;
@@ -1065,6 +1328,38 @@ private String Nomb;
             URL = txCrucero.getText();
 
         }
+        
+        
+        Nomb = "Datos de los Cruceros.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
 
         String csvFile = URL;
         BufferedReader br = null;
@@ -1128,6 +1423,39 @@ private String Nomb;
             URL = txCamarot.getText();
 
         }
+        
+        
+        Nomb = "Datos de los camarotes de cada crucero.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
+        
 
         String csvFile = URL;
         BufferedReader br = null;
@@ -1185,6 +1513,38 @@ private String Nomb;
             URL = txRentaAuto.getText();
 
         }
+        
+        
+        Nomb = "Datos De Renta Autos.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
 
         String csvFile = URL;
         BufferedReader br = null;
@@ -1251,6 +1611,38 @@ private String Nomb;
             URL = txEntidad.getText();
 
         }
+        
+        
+        Nomb = "Datos de Entidades Financieras.";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        contador=0;
+        
+         
+        
 
         String csvFile = URL;
         BufferedReader br = null;

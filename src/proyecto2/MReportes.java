@@ -17,16 +17,20 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import static proyecto2.MReservaciones.ClR;
+import static proyecto2.MReservaciones.DatosC;
 import static proyecto2.MReservaciones.DatosCarga;
 import static proyecto2.MReservaciones.DatosD;
 import static proyecto2.MReservaciones.DatosP;
 import static proyecto2.MReservaciones.DatosR;
+import static proyecto2.MReservaciones.PaqRep;
 import static proyecto2.MReservaciones.PaqueteCreado;
 import static proyecto2.NegocioSi.Fecha;
 
 public class MReportes extends MReservaciones {
-String PaqOrd[][] = new String[60][3];
-                int Vec[] = new int[60];
+
+    String PaqOrd[][] = new String[60][3];
+    int Vec[] = new int[60];
     private JButton Clientes;
     private JButton Reservas;
     private JButton Negocios;
@@ -34,12 +38,14 @@ String PaqOrd[][] = new String[60][3];
     private JButton Carga;
     private JButton Agregar;
     private JButton back;
-   int val=0;
-   
-   
+    int val = 0;
+
+    private int cont = 0;
+
+    int cant[] = new int[60];
+
     public void MReportes() {
-       
-        
+
         setSize(950, 450);
         setTitle("Modulo de Reportes");
         setDefaultCloseOperation(MReservaciones.EXIT_ON_CLOSE);
@@ -60,11 +66,16 @@ String PaqOrd[][] = new String[60][3];
         add(Carga);
         add(Agregar);
         add(back);
+
+        
+        
+       
+
         Fondo = new JLabel();
         add(Fondo);//Agregar de Ultimo
-        
+
         Fondo.setSize(950, 450);
-        
+
         ImageIcon imagen = new ImageIcon("src/proyecto2/Admi.jpg");
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
         Fondo.setIcon(icono);
@@ -74,12 +85,10 @@ String PaqOrd[][] = new String[60][3];
         Reservas.reshape(100, 120, 200, 40);
         Negocios.reshape(100, 180, 200, 40);
         Carga.reshape(100, 240, 200, 40);
+        Agregar.setEnabled(false);
         Agregar.reshape(100, 300, 200, 40);
         back.reshape(700, 340, 100, 20);
         MReportes RR = new MReportes();
-        
-        
-        
 
         Clientes.addActionListener(new ActionListener() {
             @Override
@@ -162,7 +171,7 @@ String PaqOrd[][] = new String[60][3];
                     System.out.println("Costo: " + PaqOrd[i][0]);
                     System.out.println("Tipo: " + PaqOrd[i][1]);
                 }
-                */
+                 */
             }
 
         });
@@ -174,22 +183,25 @@ String PaqOrd[][] = new String[60][3];
             }
 
             private void CargaActionPerformed(ActionEvent evt) {
-               
+
                 for (int i = 0; i < 60; i++) {
-                    if (DatosCarga[i][0]!=null) {
-                         
-                        System.out.println("Usuario que Ingreso El Archivo: "+DatosCarga[i][0]);
-                        System.out.println("Tipo de Datos: "+DatosCarga[i][1]);
-                        System.out.println("Ruta del Archivo: "+DatosCarga[i][2]);
-                        System.out.println("Fecha en que se ingreso: "+DatosCarga[i][3]);
-                        System.out.println("Hora A La que se ingreso: "+DatosCarga[i][4]);
-                        
+                    if (DatosCarga[i][0] != null) {
+
+                        System.out.println("Usuario que Ingreso El Archivo: " + DatosCarga[i][0]);
+                        System.out.println("Tipo de Datos: " + DatosCarga[i][1]);
+                        System.out.println("Ruta del Archivo: " + DatosCarga[i][2]);
+                        System.out.println("Fecha en que se ingreso: " + DatosCarga[i][3]);
+                        System.out.println("Hora A La que se ingreso: " + DatosCarga[i][4]);
+                        System.out.println("");
+                        System.out.println("");
                     }
-                    System.out.println("");
-                    System.out.println("");
-                    
+
                 }
-                
+
+                for (int i = 0; i < 10; i++) {
+                    System.out.println("");
+                }
+
             }
 
         });
@@ -201,11 +213,11 @@ String PaqOrd[][] = new String[60][3];
             }
 
             private void AgregarActionPerformed(ActionEvent evt) {
+                MReportes MR = new MReportes();
                 setVisible(false);
-                RR.REstadistica();
-                RR.setVisible(true);
-                RR.setLocationRelativeTo(null);
-
+                MR.REstadistica();
+                MR.setLocationRelativeTo(null);
+                MR.setVisible(true);
             }
 
         });
@@ -261,12 +273,12 @@ String PaqOrd[][] = new String[60][3];
         add(lbID);
         add(cbID);
         add(Imprimir);
-        
-         Fondo = new JLabel();
+
+        Fondo = new JLabel();
         add(Fondo);//Agregar de Ultimo
-        
+
         Fondo.setSize(350, 200);
-        
+
         ImageIcon imagen = new ImageIcon("src/proyecto2/06.jpg");
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
         Fondo.setIcon(icono);
@@ -283,38 +295,35 @@ String PaqOrd[][] = new String[60][3];
             }
 
             private void ImprimirActionPerformed(ActionEvent evt) {
-                
+
                 for (int j = 0; j < 60; j++) {
-                                
-                            if (cbID.getSelectedItem().equals(DatosC[j][3])) {
-                                IDC = DatosC[j][3];
-                                NombreC = DatosC[j][1]+" "+DatosC[j][2];
-                            }
 
-                        }
-                
-                  for (int j = 0; j < 60; j++) {
-                            if (cbID.getSelectedItem().equals(DatosR[j][3])) {
-                                NV++;
-                            }
+                    if (cbID.getSelectedItem().equals(DatosC[j][3])) {
+                        IDC = DatosC[j][3];
+                        NombreC = DatosC[j][1] + " " + DatosC[j][2];
+                    }
 
-                        }
+                }
 
-                        NViajes = Integer.toString(NV);
-                        NV = 0;
-                        
-                        
-                        //¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
-                
+                for (int j = 0; j < 60; j++) {
+                    if (cbID.getSelectedItem().equals(DatosR[j][3])) {
+                        NV++;
+                    }
 
+                }
+
+                NViajes = Integer.toString(NV);
+                NV = 0;
+
+                //¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
                 for (int i = 0; i < 60; i++) {
                     if (cbID.getSelectedItem().equals(DatosR[i][3])) {
 
                         for (int j = 0; j < 60; j++) {
-                                
+
                             if (DatosR[i][3].equals(DatosC[j][3])) {
                                 IDC = DatosC[j][3];
-                                NombreC = DatosC[j][1]+" "+DatosC[j][2];
+                                NombreC = DatosC[j][1] + " " + DatosC[j][2];
                             }
 
                         }
@@ -524,11 +533,160 @@ String PaqOrd[][] = new String[60][3];
 
     }
 
-    public void RCarga() {
-
-    }
-
     public void REstadistica() {
+        JButton cli;
+        JButton paq;
+        JButton des;
+        JButton cru;
+        JButton tra;
+        setSize(450, 450);
+        setTitle("Reportes De Reservaciones");
+        setDefaultCloseOperation(MReservaciones.EXIT_ON_CLOSE);
+        setLayout(null);
+        setResizable(true);
+        
+        cli = new JButton("Clientes");
+        paq = new JButton("Paquete");
+        des = new JButton("Destio");
+        cru = new JButton("Crucero");
+        tra = new JButton("Transporte");
+        
+        add(cli);
+        add(paq);
+        add(des);
+        add(cru);
+        add(tra);
+        
+        paq.reshape(20,20,100,20);
+        cli.reshape(20,50,100,20);
+        des.reshape(20,80,100,20);
+        cru.reshape(20,110,100,20);
+        tra.reshape(20,140,100,20);
+        
+         paq.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+
+            private void backActionPerformed(ActionEvent evt) {
+                
+                for (int i = 0; i < 60; i++) {
+
+            if (DatosP[i][7] != null) {
+                for (int j = 0; j < 60; j++) {
+                    if (DatosP[i][7].equals(DatosR[j][1])) {
+                        cont++;
+
+                    }
+                }
+
+                for (int k = 0; k < 60; k++) {
+                    if (PaqRep[k][0] != null) {
+                        val++;
+                    }
+                }
+                PaqRep[val][0] = DatosP[i][7];
+                PaqRep[val][1] = cont;
+
+                cont = 0;
+
+            }
+
+        }
+                
+                System.out.println("Estadisticas Paquete Mas Vendidos");
+                for (int i = 0; i < 60; i++) {
+
+                    if (PaqRep[i][0] != null) {
+                        System.out.println("paquete: " + PaqRep[i][0] + " Cant: " + PaqRep[i][1]);
+
+                    }
+
+                }
+
+                for (int i = 0; i < 3; i++) {
+                    System.out.println("");
+                }
+                
+            }
+
+        });
+          cli.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+
+            private void backActionPerformed(ActionEvent evt) {
+                
+                 
+        for (int i = 0; i < 60; i++) {
+
+            if (DatosC[i][3] != null) {
+                for (int j = 0; j < 60; j++) {
+                    if (DatosC[i][3].equals(DatosR[j][3])) {
+                        cont++;
+
+                    }
+                }
+
+                for (int k = 0; k < 60; k++) {
+                    if (ClR[k][0] != null) {
+                        val++;
+                    }
+                }
+                ClR[val][0] = DatosC[i][1];
+                ClR[val][1] = cont;
+
+                cont = 0;
+
+            }
+
+        }
+                
+                
+                
+                System.out.println("Estadisticas Clientes Mas Viajero");
+                for (int i = 0; i < 60; i++) {
+
+                    if (ClR[i][0] != null) {
+                        System.out.println("Cliete: " + ClR[i][0] + " Cant: " + ClR[i][1]);
+
+                    }
+
+                }
+
+                for (int i = 0; i < 5; i++) {
+                    System.out.println("");
+                }
+            }
+
+        });
+          des.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+
+            private void backActionPerformed(ActionEvent evt) {
+                
+            }
+
+        });
+            cru.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+
+            private void backActionPerformed(ActionEvent evt) {
+                System.out.println("Hola::::::::::::::::::");
+            }
+
+        });
+        
+        
 
     }
 

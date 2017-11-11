@@ -32,7 +32,9 @@ public class MReservaciones extends JFrame {
     public static String[][] DatosCR = new String[60][7];
     public static String[][] DatosAS = new String[60][5];
     public static String[][] DatosCT = new String[60][4];
-    public static Object[][] PaqueteCreado = new String[60][10];
+    public static Object[][] PaqueteCreado = new Object[60][10];
+    public static Object[][] PaqRep = new Object[60][2];
+    public static Object [][] ClR= new Object[60][2];
 
     Administrador AD = new Administrador();
     String Paquete;

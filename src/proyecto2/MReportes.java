@@ -1,8 +1,18 @@
 package proyecto2;
 
 //PARA LLEVAR EL CONTROL DE LAS ACCIONES REALIZADAS Y EL CONTROL DE LAS GANANCIAS ADQUIRIDAS
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -10,18 +20,25 @@ import javax.swing.JTextField;
 import static proyecto2.MReservaciones.DatosD;
 import static proyecto2.MReservaciones.DatosP;
 import static proyecto2.MReservaciones.DatosR;
+import static proyecto2.MReservaciones.PaqueteCreado;
+import static proyecto2.NegocioSi.Fecha;
 
 public class MReportes extends MReservaciones {
-
+String PaqOrd[][] = new String[60][3];
+                int Vec[] = new int[60];
     private JButton Clientes;
     private JButton Reservas;
     private JButton Negocios;
-
+    private JLabel Fondo;
     private JButton Carga;
     private JButton Agregar;
     private JButton back;
-
+   int val=0;
+   
+   
     public void MReportes() {
+       
+        
         setSize(950, 450);
         setTitle("Modulo de Reportes");
         setDefaultCloseOperation(MReservaciones.EXIT_ON_CLOSE);
@@ -42,6 +59,15 @@ public class MReportes extends MReservaciones {
         add(Carga);
         add(Agregar);
         add(back);
+        Fondo = new JLabel();
+        add(Fondo);//Agregar de Ultimo
+        
+        Fondo.setSize(950, 450);
+        
+        ImageIcon imagen = new ImageIcon("src/proyecto2/Admi.jpg");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
+        Fondo.setIcon(icono);
+        this.repaint();
 
         Clientes.reshape(100, 60, 200, 40);
         Reservas.reshape(100, 120, 200, 40);
@@ -50,6 +76,9 @@ public class MReportes extends MReservaciones {
         Agregar.reshape(100, 300, 200, 40);
         back.reshape(700, 340, 100, 20);
         MReportes RR = new MReportes();
+        
+        
+        
 
         Clientes.addActionListener(new ActionListener() {
             @Override
@@ -85,15 +114,54 @@ public class MReportes extends MReservaciones {
         Negocios.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
+
                 NegociosActionPerformed(evt);
+
             }
 
             private void NegociosActionPerformed(ActionEvent evt) {
-                setVisible(false);
-                RR.RNegocio();
-                RR.setVisible(true);
-                RR.setLocationRelativeTo(null);
+                /*
 
+                for (int i = 0; i <60; i++) {
+            //val= (int) PaqueteCreado[i][9];
+                    Vec[i] =val;
+                    val=0;
+
+                }
+        Orden O = new Orden();
+                O.Orden(Vec);
+                
+                
+                for (int i = 0; i < 60; i++) {
+
+                    for (int j = 0; j < 60; j++) {
+
+                        if (Vec[i]== (int)PaqueteCreado[j][9] ) {
+                            int con = 0;
+
+                            for (int k = 0; k < 60; k++) {
+
+                                if (PaqOrd[k] != null) {
+                                    con++;
+
+                                }
+
+                            }
+                            PaqOrd[con][0] = (String) PaqueteCreado[j][9];
+                            PaqOrd[con][1] = (String) PaqueteCreado[j][2];
+                            PaqOrd[con][2] = (String) PaqueteCreado[j][0];
+
+                        }
+                    }
+
+                }
+
+                for (int i = 0; i < 60; i++) {
+                    System.out.println("Fecha:" + PaqOrd[i][2]);
+                    System.out.println("Costo: " + PaqOrd[i][0]);
+                    System.out.println("Tipo: " + PaqOrd[i][1]);
+                }
+                */
             }
 
         });
@@ -105,10 +173,10 @@ public class MReportes extends MReservaciones {
             }
 
             private void CargaActionPerformed(ActionEvent evt) {
-                setVisible(false);
-                RR.RCarga();
-                RR.setVisible(true);
-                RR.setLocationRelativeTo(null);
+               
+                IngresoSistema IS = new IngresoSistema();
+                System.out.println("El Usuario en Ejecucion es: "+IS.Usuario.getText());
+                
             }
 
         });
@@ -137,6 +205,7 @@ public class MReportes extends MReservaciones {
 
             private void backActionPerformed(ActionEvent evt) {
                 setVisible(false);
+                AD.setLocationRelativeTo(null);
                 AD.setVisible(true);
             }
 
@@ -150,10 +219,7 @@ public class MReportes extends MReservaciones {
     static String NViajes;
     static String destino;
     static String pais;
-    private int NV=0;
-    
-    
-   
+    private int NV = 0;
 
     public void RCliente() {
         JLabel lbID;
@@ -182,6 +248,16 @@ public class MReportes extends MReservaciones {
         add(lbID);
         add(cbID);
         add(Imprimir);
+        
+         Fondo = new JLabel();
+        add(Fondo);//Agregar de Ultimo
+        
+        Fondo.setSize(350, 200);
+        
+        ImageIcon imagen = new ImageIcon("src/proyecto2/06.jpg");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
+        Fondo.setIcon(icono);
+        this.repaint();
 
         lbID.reshape(30, 40, 50, 20);
         cbID.reshape(70, 40, 100, 20);
@@ -192,36 +268,56 @@ public class MReportes extends MReservaciones {
             public void actionPerformed(ActionEvent evt) {
                 ImprimirActionPerformed(evt);
             }
- 
+
             private void ImprimirActionPerformed(ActionEvent evt) {
+                
+                for (int j = 0; j < 60; j++) {
+                                
+                            if (cbID.getSelectedItem().equals(DatosC[j][3])) {
+                                IDC = DatosC[j][3];
+                                NombreC = DatosC[j][1]+" "+DatosC[j][2];
+                            }
+
+                        }
+                
+                  for (int j = 0; j < 60; j++) {
+                            if (cbID.getSelectedItem().equals(DatosR[j][3])) {
+                                NV++;
+                            }
+
+                        }
+
+                        NViajes = Integer.toString(NV);
+                        NV = 0;
+                        
+                        
+                        //¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
                 
 
                 for (int i = 0; i < 60; i++) {
                     if (cbID.getSelectedItem().equals(DatosR[i][3])) {
-                        
-                        
+
                         for (int j = 0; j < 60; j++) {
-                            
+                                
                             if (DatosR[i][3].equals(DatosC[j][3])) {
-                                IDC=DatosC[j][3];
-                            NombreC=DatosC[j][1];
+                                IDC = DatosC[j][3];
+                                NombreC = DatosC[j][1]+" "+DatosC[j][2];
                             }
-                            
+
                         }
-                        
+
                         for (int j = 0; j < 60; j++) {
-                            if(cbID.getSelectedItem().equals(DatosR[j][3])){
-                            NV++;
+                            if (cbID.getSelectedItem().equals(DatosR[j][3])) {
+                                NV++;
                             }
-                            
+
                         }
-                        
-                        NViajes=Integer.toString(NV);
-                        NV=0;
-                            
-                            
+
+                        NViajes = Integer.toString(NV);
+                        NV = 0;
+
                         for (int j = 0; j < 60; j++) {
-                            
+
                             if (DatosR[i][1].equals(DatosP[j][7])) {
                                 for (int k = 0; k < 60; k++) {
                                     if (DatosP[j][4].equals(DatosD[k][4])) {
@@ -234,13 +330,11 @@ public class MReportes extends MReservaciones {
                         }
                     }
                 }
-  
-                System.out.println("ID Cliente: "+ IDC);
-                System.out.println("Nom y Ape: "+ NombreC);
-                System.out.println("Cantidad De Viajes Realizados: "+ NViajes);
-                System.out.println("Destino: "+destino+", "+pais);
-                
-                
+
+                System.out.println("ID Cliente: " + IDC);
+                System.out.println("Nombre y Apellido: " + NombreC);
+                System.out.println("Cantidad De Viajes Realizados: " + NViajes);
+                System.out.println("Destino: " + destino + ", " + pais);
 
             }
 
@@ -389,52 +483,40 @@ public class MReportes extends MReservaciones {
     }
 
     public void RNegocio() {
+        ListaDoble LD = new ListaDoble(0);
         /*
-        btFecha
-        btClienteFec
-        btCanselados
-        btCosto
-        btCliente
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         
-        lbDia
-        lbMes
-        lbDe //Lo uso dos veces
-        lbA  //Lo uso dos veces 
-        lbDPI
-        
-        txDia
-        txMes
-        txDPI
-        txDE1
-        txA1
-        txDE2
-        txA2
-       
-        
+        for (int i = 0; i < 60; i++) {
+            for(int j = 0 ; j < 60 ;j++){
+                
+            Date Hoy = sdf.parse(PaqueteCreado[i][0]);
+            Date comp = sdf.parse(PaqueteCreado[j][0]);
+            
+            int MAY =comp.compareTo(Hoy);
+            if (MAY<0) {
+                
+                LD.InsertarAlFinal(PaqueteCreado[i][0]);
+            }
+            if (MAY>0) {
+                LD.InsertarAlFrente(PaqueteCreado[i][0]);
+                
+            }
+            if (MAY==0) {
+                
+            }
+        }
+        }
          */
-
-        setSize(950, 450);
-        setTitle("Reportes De Negocios");
-        setDefaultCloseOperation(MReservaciones.EXIT_ON_CLOSE);
-        setLayout(null);
-        setResizable(true);
 
     }
 
     public void RCarga() {
-        setSize(950, 450);
-        setTitle("Reporte De Carga De Archivos");
-        setDefaultCloseOperation(MReservaciones.EXIT_ON_CLOSE);
-        setLayout(null);
-        setResizable(true);
+
     }
 
     public void REstadistica() {
-        setSize(950, 450);
-        setTitle("Reporte Estadistico");
-        setDefaultCloseOperation(MReservaciones.EXIT_ON_CLOSE);
-        setLayout(null);
-        setResizable(true);
+
     }
 
 }

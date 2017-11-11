@@ -4,9 +4,12 @@ package proyecto2;
 
 import Listas.Clientes;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,6 +32,7 @@ public class MReservaciones extends JFrame {
     public static String[][] DatosCR = new String[60][7];
     public static String[][] DatosAS = new String[60][5];
     public static String[][] DatosCT = new String[60][4];
+    public static Object[][] PaqueteCreado = new String[60][10];
 
     Administrador AD = new Administrador();
     String Paquete;
@@ -78,6 +82,7 @@ public class MReservaciones extends JFrame {
     JTextField txRango;
     JTextField txCosto;
     String Tot;
+    private JLabel Fondo;
 
     public void Verificacion() {
 
@@ -100,10 +105,23 @@ public class MReservaciones extends JFrame {
         add(Confirmar);
         add(back);
 
-        lbdpiver.reshape(20, 20, 100, 20);
+       
+         
+        Fondo = new JLabel();
+        add(Fondo);//Agregar de Ultimo
+        
+        Fondo.setSize(350, 150);
+        
+        ImageIcon imagen = new ImageIcon("src/proyecto2/06.jpg");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
+        Fondo.setIcon(icono);
+        this.repaint();
+        
+        
+        lbdpiver.reshape(20, 20, 50, 20);
         txdpiver.reshape(80, 20, 100, 20);
-        Confirmar.reshape(20, 60, 100, 20);
-        back.reshape(120, 60, 100, 20);
+        Confirmar.reshape(200, 20, 100, 20);
+        back.reshape(200, 60, 100, 20);
 
         Confirmar.addActionListener(new ActionListener() {
             @Override
@@ -147,6 +165,7 @@ public class MReservaciones extends JFrame {
 
             private void backActionPerformed(ActionEvent evt) {
                 setVisible(false);
+                AD.setLocationRelativeTo(null);
                 AD.setVisible(true);
             }
 
@@ -270,6 +289,16 @@ public class MReservaciones extends JFrame {
         add(Cancelar);
         add(Editar);
         add(Guardar);
+        
+        Fondo = new JLabel();
+        add(Fondo);//Agregar de Ultimo
+        
+        Fondo.setSize(950, 650);
+        
+        ImageIcon imagen = new ImageIcon("src/proyecto2/log.jpg");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
+        Fondo.setIcon(icono);
+        this.repaint();
 
         txPaqu.setEditable(false);
         txDPIR.setEditable(false);
@@ -277,13 +306,7 @@ public class MReservaciones extends JFrame {
         txFechaOut.setEditable(false);
         txRango.setEditable(false);
         txCosto.setEditable(false);
-        /*
-        txPaqu;
-        txDPIR;
-        txFechRese;
-        txFechaOut;
-        txRango;
-        txCosto; */
+     
 
         Tablero.add(lblDPI);
         Tablero.add(lblNombres);
@@ -402,6 +425,7 @@ public class MReservaciones extends JFrame {
 
                                 DatosR[i][1] = txPaqu.getText();
                                 DatosR[i][2] = txRango.getText();
+                                DatosR[i][5] = txFechaOut.getText();
                                 DatosR[i][6] = txDPIR.getText();
                                 for (int k = 0; k < 60; k++) {
                                     if (DatosR[i][1].equals(DatosP[k][7])) {
@@ -419,6 +443,7 @@ public class MReservaciones extends JFrame {
                 txPaqu.setEditable(false);
                 txRango.setEditable(false);
                 txDPIR.setEditable(false);
+                txFechaOut.setEditable(false);
 
             }
 
@@ -435,6 +460,7 @@ public class MReservaciones extends JFrame {
                 txPaqu.setEditable(true);
                 txRango.setEditable(true);
                 txDPIR.setEditable(true);
+                txFechaOut.setEditable(true);
 
             }
 
@@ -448,6 +474,7 @@ public class MReservaciones extends JFrame {
 
             private void AceptarActionPerformed(ActionEvent evt) {
                 setVisible(false);
+                AD.setLocationRelativeTo(null);
                 AD.setVisible(true);
             }
 

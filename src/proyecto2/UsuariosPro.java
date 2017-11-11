@@ -11,6 +11,31 @@ class UsuariosPro extends MReservaciones{
         
         
     }
+   
+     private String[][] DatosUsu={{"ipc1Admin"},{"Alejandro"},{"Ingrid"}};
+ 
+    
+    
+    public boolean Us(Object User) {
+ 
+        Object USUC = "";
+        
+        for (Object Usutem[] : DatosUsu) {
+            for(Object usut:Usutem){
+                     USUC = usut ;
+              if (User.equals(USUC)) {
+                        return true;
+                    }
+            }
+            
+       
+            
+
+        }
+
+        return false;
+
+    }
 
     
     public boolean UsuariosPro(Object User) {

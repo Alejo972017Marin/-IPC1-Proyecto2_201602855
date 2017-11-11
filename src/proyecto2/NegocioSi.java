@@ -1,7 +1,13 @@
 package proyecto2;
 
+import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -10,9 +16,23 @@ import javax.swing.JTextField;
 import static proyecto2.MClientes.cont;
 import static proyecto2.MReservaciones.DatosC;
 import static proyecto2.MReservaciones.DatosP;
+import static proyecto2.MReservaciones.PaqueteCreado;
 
 public class NegocioSi extends MReservaciones {
-
+    /*
+         private JLabel Fondo;
+        Fondo = new JLabel();
+        add(Fondo);//Agregar de Ultimo
+        
+        Fondo.setSize(920, 620);
+        
+        ImageIcon imagen = new ImageIcon("src/proyecto2/Travel2.jpg");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
+        Fondo.setIcon(icono);
+        this.repaint();
+        
+        */
+private JLabel Fondo;
     private JLabel lbIDPaq;
     private JLabel lbTipPaq;
     private JLabel lbClasPaq;
@@ -50,7 +70,8 @@ public class NegocioSi extends MReservaciones {
     static String cbRen[]= new String[60];
     static String cbDes[]= new String[60];
     static String cbLug[]= new String[60];
-
+     static String Fecha;
+     int cont1=0;
     public NegocioSi() {
         setSize(920, 620);
         setTitle("Creacion De Paquetes");
@@ -105,9 +126,12 @@ public class NegocioSi extends MReservaciones {
         txCostoPaq = new JTextField();
 
         back = new JButton("Atras");
-        Guardar = new JButton("Guardar");
+        Guardar = new JButton("Crear");
         Borrar = new JButton("Eliminar");
         Info = new JButton("Informacion");
+        
+           Fondo = new JLabel();
+        
 
         add(lbIDPaq);
         add(lbTipPaq);
@@ -137,6 +161,22 @@ public class NegocioSi extends MReservaciones {
         add(Borrar);
         add(back);
         add(Info);
+        
+        add(Fondo);//Agregar de Ultimo
+        
+        Fondo.setSize(920, 620);
+        
+        lbIDPaq.setForeground(Color.WHITE);
+        lbTipPaq.setForeground(Color.WHITE);
+        lbClasPaq .setForeground(Color.WHITE);
+        lbCantViaj.setForeground(Color.WHITE);
+        lbIDTransporte.setForeground(Color.WHITE);
+        lbIDHospedaje .setForeground(Color.WHITE);
+        lbIDCrucero .setForeground(Color.WHITE);
+        lbIDRentadora.setForeground(Color.WHITE);
+        lbIDDestino.setForeground(Color.WHITE);
+        lbIDLugar .setForeground(Color.WHITE);
+        lbCostoPaq.setForeground(Color.WHITE);
 
         lbIDPaq.reshape(20, 20, 100, 20);
         txIDPaq.reshape(130, 20, 100, 20);
@@ -176,6 +216,11 @@ public class NegocioSi extends MReservaciones {
         Borrar.reshape(140, 460, 100, 20);
         back.reshape(760, 460, 100, 20);
         
+        ImageIcon imagen = new ImageIcon("src/proyecto2/ne.jpg");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
+        Fondo.setIcon(icono);
+        this.repaint();
+        
         Info.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
@@ -200,7 +245,7 @@ public class NegocioSi extends MReservaciones {
 
             }
         });
-
+ 
         Guardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
@@ -226,8 +271,37 @@ public class NegocioSi extends MReservaciones {
                 DatosP[ver][9] = (String) cbIDTransporte.getSelectedItem();
                 DatosP[ver][10] = txCostoPaq.getText();
 
-                ver = 0;
-                JOptionPane.showMessageDialog(null, "Guardado " + ver);
+                
+                JOptionPane.showMessageDialog(null, "Paquete Creado Correctamente" + ver);
+                
+                Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                
+                for (int i = 0; i < 60; i++) {
+                    if (PaqueteCreado[i][1] != null) {
+                        cont1++;
+                    }
+                }
+                
+                
+                PaqueteCreado[cont1][0]=Fecha;
+                PaqueteCreado[cont1][1]=txIDPaq.getText();
+                PaqueteCreado[cont1][2]= txTipPaq.getText();
+                PaqueteCreado[cont1][3]= (String) cbIDTransporte.getSelectedItem();
+                PaqueteCreado[cont1][4]= (String) cbIDHospedaje.getSelectedItem();
+                PaqueteCreado[cont1][5]= (String) cbIDCrucero.getSelectedItem();
+                PaqueteCreado[cont1][6]= (String) cbIDRentadora.getSelectedItem();
+                PaqueteCreado[cont1][7]= (String) cbIDDestino.getSelectedItem();
+                PaqueteCreado[cont1][8]= (String) cbIDLugar.getSelectedItem();
+                PaqueteCreado[cont1][9]=  Integer.parseInt(txCostoPaq.getText());
+                
+                cont1=0;
+ver = 0;
+
 
             }
         });

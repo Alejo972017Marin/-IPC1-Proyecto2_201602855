@@ -3,6 +3,7 @@
 //De IGUAL MANERA PARA CONTROLAR LA FRECUENCIA CON LA QUE ADQUIERE EL SERVICIO 
 package proyecto2;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -86,6 +87,7 @@ public class MClientes extends MReservaciones {
         Info = new JButton("Datos");
         Modificar = new JButton("Modificar");
         Borrar = new JButton("Eliminar");
+        
 
         add(lbDPI);
         add(lbNombre);
@@ -112,35 +114,43 @@ public class MClientes extends MReservaciones {
         add(Fondo);
 
         Fondo.setSize(920, 620);
-
+//.setForeground(Color.red); 
         lbNombre.reshape(20, 20, 100, 20);
+        lbNombre.setForeground(Color.WHITE);
         txNombre.reshape(120, 20, 100, 20);
         Info.reshape(300, 20, 100, 20);
 
         lbApellido.reshape(20, 60, 100, 20);
+        lbApellido.setForeground(Color.WHITE);
         txApellido.reshape(120, 60, 100, 20);
         Modificar.reshape(300, 60, 100, 20);
 
         lbDPI.reshape(20, 100, 100, 20);
+        lbDPI.setForeground(Color.WHITE);
         txDPI.reshape(120, 100, 100, 20);
         Borrar.reshape(300, 100, 100, 20);
 
         lbNumTarjeta.reshape(20, 140, 100, 20);
+        lbNumTarjeta.setForeground(Color.WHITE);
         txNumTarjeta.reshape(120, 140, 100, 20);
         lbFechNac.reshape(20, 180, 100, 20);
+        lbFechNac.setForeground(Color.WHITE);
         txFechNac.reshape(120, 180, 100, 20);
         lbTel.reshape(20, 220, 100, 20);
+        lbTel.setForeground(Color.WHITE);
         txTel.reshape(120, 220, 100, 20);
         lbMovil.reshape(20, 260, 100, 20);
+        lbMovil.setForeground(Color.WHITE);
         txMovil.reshape(120, 260, 100, 20);
         lbDirecHabt.reshape(20, 300, 100, 20);
+        lbDirecHabt.setForeground(Color.WHITE);
         txDirecHabt.reshape(120, 300, 100, 20);
 
         Agregar.reshape(20, 360, 100, 20);
         Cancelar.reshape(160, 360, 100, 20);
         back.reshape(20, 410, 100, 20);
 
-        ImageIcon imagen = new ImageIcon("src/proyecto2/Travel2.jpg");
+        ImageIcon imagen = new ImageIcon("src/proyecto2/clie.jpg");
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
         Fondo.setIcon(icono);
         this.repaint();
@@ -168,7 +178,7 @@ public class MClientes extends MReservaciones {
                 DatosC[cont][7] = txMovil.getText();
                 DatosC[cont][8] = txDirecHabt.getText();
 
-                JOptionPane.showMessageDialog(null, "Guardado " + cont);
+                JOptionPane.showMessageDialog(null, "Registro Exitoso ");
                 cont = 0;
 
             }
@@ -289,6 +299,7 @@ public class MClientes extends MReservaciones {
 
             private void backActionPerformed(ActionEvent evt) {
                 setVisible(false);
+                AD.setLocationRelativeTo(null);
                 AD.setVisible(true);
             }
 

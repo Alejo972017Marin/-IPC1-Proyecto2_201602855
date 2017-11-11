@@ -1,15 +1,18 @@
 package proyecto2;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JLabel;
 
 public class Administrador extends JFrame {
 
-   
+    private JLabel Fondo;
     private JButton Clientes;
     private JButton Reservas;
     private JButton Negocios;
@@ -17,14 +20,13 @@ public class Administrador extends JFrame {
     private JButton Carga;
     private JButton Agregar;
     private JButton back;
-    private JPanel Tablero;
-
+IngresoSistema IS = new IngresoSistema();
     public Administrador() {
         setSize(950, 650);
         setTitle("Administracion");
         setDefaultCloseOperation(MReservaciones.EXIT_ON_CLOSE);
         setLayout(null);
-        setResizable(true);
+        setResizable(false);
 
         Clientes = new JButton("Clientes");
         Reservas = new JButton("Reservas");
@@ -33,7 +35,10 @@ public class Administrador extends JFrame {
         Carga = new JButton("Carga");
         Agregar = new JButton("Negocios");
         back = new JButton("Atras");
-
+        Fondo = new JLabel();
+        Reportes.setVisible(false);
+        Carga.setVisible(false);
+        
 
         add(Clientes);
         add(Reservas);
@@ -42,14 +47,35 @@ public class Administrador extends JFrame {
         add(Carga);
         add(Agregar);
         add(back);
+        add(Fondo);//Agregar de Ultimo
 
-        Clientes.reshape(200, 150, 200, 50);
-        Reservas.reshape(200, 250, 200, 50);
-        Negocios.reshape(200, 350, 200, 50);
-        Reportes.reshape(500, 350, 200, 50);
-        Carga.reshape(500, 250, 200, 50);
-        Agregar.reshape(500, 150, 200, 50);
+        if (IS.Usuario.getText().equals("ipc1Admin")) {
+            Reportes.setVisible(true);
+            Carga.setVisible(true);
+
+            Clientes.reshape(200, 150, 200, 50);
+            Reservas.reshape(200, 250, 200, 50);
+            Negocios.reshape(200, 350, 200, 50);
+            Reportes.reshape(500, 350, 200, 50);
+            Carga.reshape(500, 250, 200, 50);
+            Agregar.reshape(500, 150, 200, 50);
+
+        } else {
+            Clientes.reshape(225, 200, 200, 50);
+            Reservas.reshape(225, 300, 200, 50);
+            Agregar.reshape(525, 200, 200, 50);
+            Negocios.reshape(525, 300, 200, 50);
+
+        }
+
+        Fondo.setSize(950, 650);
+
         back.reshape(700, 450, 100, 20);
+
+        ImageIcon imagen = new ImageIcon("src/proyecto2/res.jpg");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
+        Fondo.setIcon(icono);
+        this.repaint();
 
         Clientes.addActionListener(new ActionListener() {
             @Override
@@ -60,7 +86,7 @@ public class Administrador extends JFrame {
             private void ClientesActionPerformed(ActionEvent evt) {
                 setVisible(false);
                 MClientes MC = new MClientes();
-               // MC.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                // MC.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 MC.setVisible(true);
                 MC.setLocationRelativeTo(null);
             }
@@ -91,11 +117,11 @@ public class Administrador extends JFrame {
 
             private void NegociosActionPerformed(ActionEvent evt) {
                 setVisible(false);
-                MNegocios MN= new MNegocios();
+                MNegocios MN = new MNegocios();
                 MN.MNegocios();
                 MN.setLocationRelativeTo(null);
                 MN.setVisible(true);
-                
+
             }
 
         });
@@ -108,7 +134,7 @@ public class Administrador extends JFrame {
 
             private void ReportesActionPerformed(ActionEvent evt) {
                 setVisible(false);
-                MReportes MR= new MReportes();
+                MReportes MR = new MReportes();
                 MR.MReportes();
                 MR.setVisible(true);
                 MR.setLocationRelativeTo(null);
@@ -124,7 +150,7 @@ public class Administrador extends JFrame {
 
             private void CargaActionPerformed(ActionEvent evt) {
                 setVisible(false);
-                MCarga MC= new MCarga();
+                MCarga MC = new MCarga();
                 MC.MCarga();
                 MC.setLocationRelativeTo(null);
                 MC.setVisible(true);
@@ -143,7 +169,7 @@ public class Administrador extends JFrame {
                 NegocioSi NS = new NegocioSi();
                 NS.setLocationRelativeTo(null);
                 NS.setVisible(true);
-               
+
             }
 
         });
@@ -155,8 +181,12 @@ public class Administrador extends JFrame {
             }
 
             private void backActionPerformed(ActionEvent evt) {
+                IngresoSistema IS = new IngresoSistema();
                 setVisible(false);
-              
+                IS.setLocationRelativeTo(null);
+                IS.setVisible(true);
+                IS.Usuario.setText("");
+
             }
 
         });

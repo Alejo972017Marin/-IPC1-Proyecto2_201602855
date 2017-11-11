@@ -9,12 +9,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.StringTokenizer;
 import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import static proyecto2.NegocioSi.Fecha;
 
 public class MCarga extends MReservaciones {
 
@@ -441,15 +444,53 @@ public class MCarga extends MReservaciones {
         });
 
     }
-
+IngresoSistema IS = new IngresoSistema();
 //Listo
+private String Fecha;
+private String Hora;
+private String Nomb;
+    int contador=0;
     public void Clientes() {
+        
         String URL = "";
 
         if (txClientes.getText() != null) {
             URL = txClientes.getText();
-
+            
         }
+        
+        
+        Nomb = "Datos de clientes";
+        
+        Calendar fecha = new GregorianCalendar();
+                int año = fecha.get(Calendar.YEAR);
+                int mes = fecha.get(Calendar.MONTH);
+                int dia = fecha.get(Calendar.DAY_OF_MONTH);
+                int hor=fecha.get(Calendar.HOUR_OF_DAY);
+                int min= fecha.get(Calendar.MINUTE);
+                
+                Fecha =Integer.toString(dia)+"-"+Integer.toString(mes)+"-"+Integer.toString(año);
+                Hora =Integer.toString(hor)+":"+Integer.toString(min);
+        
+        for (int i = 0; i < 10; i++) {
+            if (DatosCarga[i][0]!=null) {
+                contador++;
+            }
+            
+        }
+        
+        DatosCarga[contador][0]=IS.Usuario.getText();
+        DatosCarga[contador][1]= Nomb;
+        DatosCarga[contador][2]=URL;
+        DatosCarga[contador][3]= Fecha;
+        DatosCarga[contador][4]= Hora;
+        
+        
+        
+        
+         
+        
+        
 
         String csvFile = URL;
         BufferedReader br = null;

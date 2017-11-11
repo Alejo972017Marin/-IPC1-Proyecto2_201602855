@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class MReservaciones extends JFrame {
-
+    public static Object[][] DatosCarga = new String[60][5];
     public static String[][] DatosC = new String[60][10];
     public static String[][] DatosR = new String[60][8];
     public static String[][] DatosT = new String[60][5];

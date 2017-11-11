@@ -19,19 +19,7 @@ import static proyecto2.MReservaciones.DatosP;
 import static proyecto2.MReservaciones.PaqueteCreado;
 
 public class NegocioSi extends MReservaciones {
-    /*
-         private JLabel Fondo;
-        Fondo = new JLabel();
-        add(Fondo);//Agregar de Ultimo
-        
-        Fondo.setSize(920, 620);
-        
-        ImageIcon imagen = new ImageIcon("src/proyecto2/Travel2.jpg");
-        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Fondo.getWidth(), Fondo.getHeight(), Image.SCALE_DEFAULT));
-        Fondo.setIcon(icono);
-        this.repaint();
-        
-        */
+   
 private JLabel Fondo;
     private JLabel lbIDPaq;
     private JLabel lbTipPaq;
